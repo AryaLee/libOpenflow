@@ -382,6 +382,11 @@ func (p *PacketIn) UnmarshalBinary(data []byte) error {
 	return err
 }
 
+func (p *PacketIn) GetData() []byte {
+	b, _ := p.Data.MarshalBinary()
+	return b
+}
+
 // ofp_packet_in_reason 1.3
 const (
 	R_NO_MATCH    = iota /* No matching flow (table-miss flow entry). */
